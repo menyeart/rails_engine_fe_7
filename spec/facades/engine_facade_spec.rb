@@ -28,5 +28,12 @@ RSpec.describe EngineFacade do
         expect(item.merchant_id).to be_a(Integer)
       end
     end
+
+      it "returns a single merchant object matching the search parameters" do
+        merchant = @facade.merchants_by_name('Sch')
+        expect(merchant).to be_a(Merchant)
+        expect(merchant.name).to be_a(String)
+        expect(merchant.id).to be_a(String)
+      end
   end
 end

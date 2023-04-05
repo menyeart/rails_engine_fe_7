@@ -15,4 +15,8 @@ class EngineService
   def self.get_items(merchant_id)
     get_url("api/v1/merchants/#{merchant_id}/items")
   end
+
+  def self.find_by_name(name)
+    get_url("api/v1/merchants/find?name=#{name}")
+  end
 end

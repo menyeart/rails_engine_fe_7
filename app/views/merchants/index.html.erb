@@ -1,5 +1,13 @@
 <h1>All Merchants</h1>
 
+<h3> Merchant Search<h3>
+
+<%= form_with url: "/search", local: true, method: :get do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name, required: true %><br>
+  <%= form.submit "Search" %>
+<% end %>
+
 <%@merchants.all_merchants.each do |merchant| %>
 <ul>
 <li><%= link_to "#{merchant.name}", merchant_path(merchant.id), method: :get, local: true  %></li>

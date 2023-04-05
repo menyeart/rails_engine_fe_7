@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :merchants, only: [:index, :show]
+
+  get "/search", to: "merchants#search"
 end

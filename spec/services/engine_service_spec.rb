@@ -53,6 +53,20 @@ RSpec.describe EngineService do
           expect(all_items[:data].first[:attributes]).to have_key(:merchant_id)
           expect(all_items[:data].first[:attributes][:merchant_id]).to be_a(Integer)
         end
+
+        describe "#find_by_name" do
+          it "find a merchant by name or name fragment" do
+            name = "Sch"
+            merchant = EngineService.find_by_name(name)
+  
+            expect(merchant).to be_a(Hash)
+            expect(merchant).to have_key(:data)
+            expect(merchant[:data]).to have_key(:id)
+            expect(merchant[:data]).to have_key(:attributes)
+            expect(merchant[:data][:attributes]).to have_key(:name)
+            expect(merchant[:data][:attributes][:name]).to be_a(String)
+          end
+        end
       end
     end
   end

@@ -14,6 +14,11 @@ class EngineFacade
     end
   end
 
+  def merchants_by_name(name)
+    merchant_data = EngineService.find_by_name(name)[:data]
+      Merchant.new(find_info(merchant_data))
+  end
+
 private
 
   def find_info(merchant)
